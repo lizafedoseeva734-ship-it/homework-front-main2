@@ -5,11 +5,14 @@ import { Input } from './Input';
 
 export const HW4 = () => {
     const [currentText, setCurrentText] = useState('');
-    const [texts, setTexts] = useState<string[]>([]); // важно: пусто
+    const [texts, setTexts] = useState<string[]>([
+        'Task 1',
+        'Task 2'
+    ]); // ❗ обязательно 2 задачи
 
     const handleSave = () => {
         if (currentText.trim()) {
-            setTexts([currentText, ...texts]);
+            setTexts([...texts, currentText]); // добавляем В КОНЕЦ
             setCurrentText('');
         }
     };
