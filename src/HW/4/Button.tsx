@@ -1,7 +1,6 @@
 type ButtonPropsType = {
     callBack: () => void;
     name: string;
-    id?: string;
 };
 
 export const Button = (props: ButtonPropsType) => {
@@ -10,7 +9,7 @@ export const Button = (props: ButtonPropsType) => {
     };
 
     return (
-        <button id={props.id} onClick={callBackHandler}>
+        <button id={'hw04-button'} onClick={callBackHandler}>
             {props.name}
         </button>
     );

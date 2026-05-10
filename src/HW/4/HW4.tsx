@@ -5,7 +5,7 @@ import { Input } from './Input';
 
 export const HW4 = () => {
     const [currentText, setCurrentText] = useState('');
-    const [texts, setTexts] = useState<string[]>([]); // ❗ пустой массив
+    const [texts, setTexts] = useState<string[]>([]); // важно: пусто
 
     const handleSave = () => {
         if (currentText.trim()) {
@@ -23,7 +23,7 @@ export const HW4 = () => {
                 </h1>
             )}
 
-            {/* вводимый текст */}
+            {/* текст при вводе */}
             {currentText && (
                 <h1 id={'hw04-text'}>
                     {currentText}
@@ -38,7 +38,6 @@ export const HW4 = () => {
             <Button
                 callBack={handleSave}
                 name={'Сохранить'}
-                id={'hw04-save-btn'}
             />
 
             <h1 style={{ marginTop: '50px' }}>
