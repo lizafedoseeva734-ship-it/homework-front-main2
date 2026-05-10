@@ -5,7 +5,10 @@ import { Input } from './Input';
 
 export const HW4 = () => {
     const [currentText, setCurrentText] = useState('');
-    const [texts, setTexts] = useState<string[]>([]);
+    const [texts, setTexts] = useState<string[]>([
+        'Task 1',
+        'Task 2'
+    ]);
 
     const handleSave = () => {
         if (currentText.trim()) {
