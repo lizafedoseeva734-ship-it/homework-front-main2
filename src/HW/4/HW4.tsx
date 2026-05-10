@@ -5,10 +5,7 @@ import { Input } from './Input';
 
 export const HW4 = () => {
     const [currentText, setCurrentText] = useState('');
-    const [texts, setTexts] = useState<string[]>([
-        'Task 1',
-        'Task 2'
-    ]);
+    const [texts, setTexts] = useState<string[]>([]); // ❗ пустой массив
 
     const handleSave = () => {
         if (currentText.trim()) {
@@ -19,13 +16,24 @@ export const HW4 = () => {
 
     return (
         <div id={'hw04'}>
-            {texts.length === 0 && !currentText ? (
-                <h1 id={'hw04-default-text'}>Здесь появится новое дело</h1>
-            ) : (
-                currentText && <h1 id={'hw04-text'}>{currentText}</h1>
+            {/* дефолтный текст */}
+            {texts.length === 0 && !currentText && (
+                <h1 id={'hw04-default-text'}>
+                    Здесь появится новое дело
+                </h1>
             )}
 
-            <Input currentText={currentText} setCurrentText={setCurrentText} />
+            {/* вводимый текст */}
+            {currentText && (
+                <h1 id={'hw04-text'}>
+                    {currentText}
+                </h1>
+            )}
+
+            <Input
+                currentText={currentText}
+                setCurrentText={setCurrentText}
+            />
 
             <Button
                 callBack={handleSave}
@@ -33,21 +41,25 @@ export const HW4 = () => {
                 id={'hw04-save-btn'}
             />
 
-            <h1 style={{ marginTop: '50px' }}>СПИСОК ДЕЛ НА ДЕНЬ:</h1>
+            <h1 style={{ marginTop: '50px' }}>
+                СПИСОК ДЕЛ НА ДЕНЬ:
+            </h1>
 
             {texts.length > 0 && (
                 <ol id={'hw04-tasks'}>
-                    {texts.map((el, index) => {
-                        return (
-                            <li
-                                key={index}
-                                id={`hw04-task-${index}`}
-                                className={index % 2 === 0 ? s.chet : s.nechet}
-                            >
-                                {el}
-                            </li>
-                        );
-                    })}
+                    {texts.map((el, index) => (
+                        <li
+                            key={index}
+                            id={`hw04-task-${index}`}
+                            className={
+                                index % 2 === 0
+                                    ? s.chet
+                                    : s.nechet
+                            }
+                        >
+                            {el}
+                        </li>
+                    ))}
                 </ol>
             )}
         </div>

@@ -9,9 +9,9 @@ export const Button = (props: ButtonPropsType) => {
         props.callBack();
     };
 
-   return (
-    <button id={'hw04-button'} onClick={callBackHandler}>
-        {props.name}
-    </button>
-);
+    return (
+        <button id={props.id} onClick={callBackHandler}>
+            {props.name}
+        </button>
+    );
 };
